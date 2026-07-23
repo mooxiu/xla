@@ -234,7 +234,7 @@ common:cuda_clang_local --crosstool_top=@local_config_cuda//crosstool:toolchain
 # Set up compilation CUDA version and paths and use the CUDA Clang toolchain.
 common:cuda_clang_official --config=cuda_clang
 common:cuda_clang_official --config=cuda_version
-common:cuda_clang_official --action_env=CLANG_CUDA_COMPILER_PATH="/usr/lib/llvm-18/bin/clang"
+common:cuda_clang_official --action_env=CLANG_CUDA_COMPILER_PATH="/home/muyao/opt/llvm-18/build/bin/clang"
 common:cuda_clang_official --crosstool_top="@local_config_cuda//crosstool:toolchain"
 
 # Build with nvcc for CUDA and clang for host
@@ -279,7 +279,7 @@ common:rocm_base --define=xnn_enable_avx512fp16=false
 common:rocm_base --repo_env TF_NEED_ROCM=1
 
 common:rocm_clang_official --config=rocm_base
-common:rocm_clang_official --action_env=CLANG_COMPILER_PATH="/usr/lib/llvm-18/bin/clang"
+common:rocm_clang_official --action_env=CLANG_COMPILER_PATH="/home/muyao/opt/llvm-18/build/bin/clang"
 common:rocm_clang_official --action_env=TF_ROCM_CLANG="1"
 common:rocm_clang_official --linkopt="-fuse-ld=lld"
 common:rocm_clang_official --host_linkopt="-fuse-ld=lld"
@@ -529,7 +529,7 @@ common:rbe_linux_cpu_clang_local --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
 common:rbe_linux_cpu_clang_local --host_crosstool_top="@local_config_cuda//crosstool:toolchain"
 common:rbe_linux_cpu_clang_local --crosstool_top="@local_config_cuda//crosstool:toolchain"
 common:rbe_linux_cpu_clang_local --extra_toolchains="@local_config_cuda//crosstool:toolchain-linux-x86_64"
-common:rbe_linux_cpu_clang_local --repo_env=CC="/usr/lib/llvm-18/bin/clang"
+common:rbe_linux_cpu_clang_local --repo_env=CC="/home/muyao/opt/llvm-18/build/bin/clang"
 common:rbe_linux_cpu_clang_local --repo_env=TF_SYSROOT="/dt9"
 
 # Download CUDA/CUDNN redistributions to preserve the repositories cache between

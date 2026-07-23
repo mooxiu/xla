@@ -458,7 +458,7 @@ int RocmTracer::toolInit(rocprofiler_client_finalize_t fini_func,
     size_t hip_ops_count = 0;
 
     rocprofiler_configure_callback_tracing_service(
-        context_, ROCPROFILER_CALLBACK_TRACING_HIP_RUNTIME_API, hip_ops,
+        context_, ROCPROFILER_CALLBACK_TRACING_HIP_RUNTIME_API, const_cast<rocprofiler_tracing_operation_t*>(hip_ops),
         hip_ops_count,
         [](rocprofiler_callback_tracing_record_t record,
            rocprofiler_user_data_t*, void*) {
